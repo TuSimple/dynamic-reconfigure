@@ -166,7 +166,8 @@ static void workThread(char* service_name, PyObject *python_handle, std::vector<
     if (!PyEval_ThreadsInitialized()) {
         PyEval_InitThreads();
     }
-    rqt_reconfigure::Server_py(service_name, python_handle, cfg_all);
+    std::string _name = std::string(service_name);
+    rqt_reconfigure::Server_py(_name, python_handle, cfg_all);
 }
 
 
